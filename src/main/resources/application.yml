@@ -4,15 +4,15 @@ micronaut:
 
 datasources:
   default:
-    dialect: H2
-    password: ""
-    username: sa
-    url: jdbc:h2:mem:devDb;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
-    driverClassName: org.h2.Driver
+    db-type: postgres
+    dialect: POSTGRES
+    password: ${DATABASE_PASSWORD}
+    username: ${DATABASE_USERNAME}
+    url: jdbc:${DATABASE_URL}
+    driverClassName: org.postgresql.Driver
+
 jpa:
   default:
-    packages-to-scan:
-      - 'br.com.rspinfotec.domain'
     properties:
       hibernate:
         hbm2ddl:

@@ -11,7 +11,7 @@ plugins {
 version = "0.1"
 group = "br.com.rspinfotec"
 
-val kotlinVersion=project.properties.get("kotlinVersion")
+val kotlinVersion = project.properties.get("kotlinVersion")
 repositories {
     mavenCentral()
 }
@@ -27,7 +27,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
-    runtimeOnly("com.h2database:h2")
+    runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("org.yaml:snakeyaml")
     testImplementation("io.micronaut:micronaut-http-client")
 }
 
@@ -60,8 +61,8 @@ micronaut {
         annotations("br.com.rspinfotec.*")
     }
     aot {
-    // Please review carefully the optimizations enabled below
-    // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
+        // Please review carefully the optimizations enabled below
+        // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
         optimizeServiceLoading.set(false)
         convertYamlToJava.set(false)
         precomputeOperations.set(true)
